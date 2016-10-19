@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.iOS.BackgroundSync", "Xamarin.iOS.BackgroundSync\Xamarin.iOS.BackgroundSync.csproj", "{FE3692DE-AF8A-40E0-BA71-D047520D5807}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Release|iPhone.ActiveCfg = Release|iPhone
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Release|iPhone.Build.0 = Release|iPhone
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{FE3692DE-AF8A-40E0-BA71-D047520D5807}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
