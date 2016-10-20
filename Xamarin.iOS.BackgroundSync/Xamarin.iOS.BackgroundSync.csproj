@@ -94,13 +94,28 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Download.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_download_white.png" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_download_white_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_download_white_3x.png" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_upload_white.png" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_upload_white_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Upload.imageset\ic_file_upload_white_3x.png" />
+    <ImageAsset Include="Assets.xcassets\Download.imageset\ic_file_download_white.png" />
+    <ImageAsset Include="Assets.xcassets\Download.imageset\ic_file_download_white_2x.png" />
+    <ImageAsset Include="Assets.xcassets\Download.imageset\ic_file_download_white_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Storyboards\" />
+    <Folder Include="Assets.xcassets\Upload.imageset\" />
+    <Folder Include="Assets.xcassets\Download.imageset\" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Storyboards\Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -109,9 +124,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\DownloadViewController.cs" />
+    <Compile Include="ViewControllers\DownloadViewController.designer.cs">
+      <DependentUpon>DownloadViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\UploadViewController.cs" />
+    <Compile Include="ViewControllers\UploadViewController.designer.cs">
+      <DependentUpon>UploadViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

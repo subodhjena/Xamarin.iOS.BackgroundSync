@@ -5,14 +5,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Upload-->
         <scene sceneID="Rd9-MJ-DOQ">
             <objects>
                 <navigationController id="9Oi-kd-cpd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KD5-GH-OdM"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="Upload" selectedImage="Upload" id="KD5-GH-OdM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="btC-pK-KsO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="P3L-Fg-N3U" kind="relationship" relationship="rootViewController" id="BPQ-tl-aF1"/>
@@ -22,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="311" y="883"/>
         </scene>
-        <!--Item 2-->
+        <!--Upload-->
         <scene sceneID="ddX-5q-cHB">
             <objects>
-                <viewController id="P3L-Fg-N3U" sceneMemberID="viewController">
+                <viewController id="P3L-Fg-N3U" customClass="UploadViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="38q-XC-e1c"/>
                         <viewControllerLayoutGuide type="bottom" id="u6H-4V-Kqr"/>
@@ -33,19 +37,34 @@
                     <view key="view" contentMode="scaleToFill" id="4cp-xj-Hlk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="puB-Vs-M92">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="puB-Vs-M92" firstAttribute="leading" secondItem="4cp-xj-Hlk" secondAttribute="leading" id="Wd8-CH-dfC"/>
+                            <constraint firstItem="puB-Vs-M92" firstAttribute="bottom" secondItem="u6H-4V-Kqr" secondAttribute="top" id="X0w-47-21H"/>
+                            <constraint firstItem="puB-Vs-M92" firstAttribute="top" secondItem="38q-XC-e1c" secondAttribute="bottom" id="ns1-3i-M6h"/>
+                            <constraint firstAttribute="trailing" secondItem="puB-Vs-M92" secondAttribute="trailing" id="ozD-o2-eUR"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MjN-m6-ess"/>
-                    <navigationItem key="navigationItem" id="xVO-Di-K2l"/>
+                    <tabBarItem key="tabBarItem" title="Upload" id="MjN-m6-ess"/>
+                    <navigationItem key="navigationItem" title="Upload" id="xVO-Di-K2l"/>
+                    <connections>
+                        <outlet property="tableView" destination="puB-Vs-M92" id="M5d-pw-RKz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptY-M7-huU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="883"/>
         </scene>
-        <!--Item 1-->
+        <!--Download-->
         <scene sceneID="rb5-Jc-Z1D">
             <objects>
-                <viewController id="4K0-WW-Xa6" sceneMemberID="viewController">
+                <viewController id="4K0-WW-Xa6" customClass="DownloadViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="un9-Va-RXv"/>
                         <viewControllerLayoutGuide type="bottom" id="SPS-8E-uxa"/>
@@ -53,10 +72,25 @@
                     <view key="view" contentMode="scaleToFill" id="dr1-Em-o78">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rSG-jf-2fw">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rSG-jf-2fw" firstAttribute="bottom" secondItem="SPS-8E-uxa" secondAttribute="top" id="LFL-jW-Fc2"/>
+                            <constraint firstAttribute="trailing" secondItem="rSG-jf-2fw" secondAttribute="trailing" id="Mba-mF-jWl"/>
+                            <constraint firstItem="rSG-jf-2fw" firstAttribute="leading" secondItem="dr1-Em-o78" secondAttribute="leading" id="XNR-zD-ps4"/>
+                            <constraint firstItem="rSG-jf-2fw" firstAttribute="top" secondItem="un9-Va-RXv" secondAttribute="bottom" id="f2n-ky-2ix"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="dM1-KW-l5m"/>
-                    <navigationItem key="navigationItem" id="tyr-wb-c1U"/>
+                    <tabBarItem key="tabBarItem" title="Download" id="dM1-KW-l5m"/>
+                    <navigationItem key="navigationItem" title="Download" id="tyr-wb-c1U"/>
+                    <connections>
+                        <outlet property="tableView" destination="rSG-jf-2fw" id="KQ4-kY-OzY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="not-8R-8y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,14 +114,18 @@
             </objects>
             <point key="canvasLocation" x="-586" y="501"/>
         </scene>
-        <!--Item-->
+        <!--Download-->
         <scene sceneID="2Wj-qu-dCe">
             <objects>
                 <navigationController id="Gr7-k8-GvE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="20Q-ij-yai"/>
+                    <tabBarItem key="tabBarItem" title="Download" image="Download" selectedImage="Download" id="20Q-ij-yai"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KwM-Rh-Nqs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4K0-WW-Xa6" kind="relationship" relationship="rootViewController" id="KLp-oA-wvN"/>
@@ -98,4 +136,8 @@
             <point key="canvasLocation" x="312" y="34"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Download" width="24" height="24"/>
+        <image name="Upload" width="24" height="24"/>
+    </resources>
 </document>
