@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qO5-29-xSo">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -24,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zfn-AQ-aVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="883"/>
+            <point key="canvasLocation" x="312" y="847"/>
         </scene>
         <!--Upload-->
         <scene sceneID="ddX-5q-cHB">
@@ -38,28 +37,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="puB-Vs-M92">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MbC-ga-Vzt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="puB-Vs-M92" firstAttribute="leading" secondItem="4cp-xj-Hlk" secondAttribute="leading" id="Wd8-CH-dfC"/>
-                            <constraint firstItem="puB-Vs-M92" firstAttribute="bottom" secondItem="u6H-4V-Kqr" secondAttribute="top" id="X0w-47-21H"/>
-                            <constraint firstItem="puB-Vs-M92" firstAttribute="top" secondItem="38q-XC-e1c" secondAttribute="bottom" id="ns1-3i-M6h"/>
-                            <constraint firstAttribute="trailing" secondItem="puB-Vs-M92" secondAttribute="trailing" id="ozD-o2-eUR"/>
+                            <constraint firstItem="MbC-ga-Vzt" firstAttribute="top" secondItem="38q-XC-e1c" secondAttribute="bottom" constant="-64" id="N8q-Qg-vEj"/>
+                            <constraint firstItem="MbC-ga-Vzt" firstAttribute="leading" secondItem="4cp-xj-Hlk" secondAttribute="leading" id="cqe-uB-Kb9"/>
+                            <constraint firstItem="MbC-ga-Vzt" firstAttribute="bottom" secondItem="u6H-4V-Kqr" secondAttribute="top" id="eDR-A0-6LF"/>
+                            <constraint firstAttribute="trailing" secondItem="MbC-ga-Vzt" secondAttribute="trailing" id="vJ1-hT-xWf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" id="MjN-m6-ess"/>
                     <navigationItem key="navigationItem" title="Upload" id="xVO-Di-K2l"/>
                     <connections>
-                        <outlet property="tableView" destination="puB-Vs-M92" id="M5d-pw-RKz"/>
+                        <outlet property="tableView" destination="MbC-ga-Vzt" id="Ebh-nL-Btk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptY-M7-huU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="883"/>
+            <point key="canvasLocation" x="1037" y="847"/>
         </scene>
         <!--Download-->
         <scene sceneID="rb5-Jc-Z1D">
@@ -73,28 +72,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rSG-jf-2fw">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZYv-ob-SqI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rSG-jf-2fw" firstAttribute="bottom" secondItem="SPS-8E-uxa" secondAttribute="top" id="LFL-jW-Fc2"/>
-                            <constraint firstAttribute="trailing" secondItem="rSG-jf-2fw" secondAttribute="trailing" id="Mba-mF-jWl"/>
-                            <constraint firstItem="rSG-jf-2fw" firstAttribute="leading" secondItem="dr1-Em-o78" secondAttribute="leading" id="XNR-zD-ps4"/>
-                            <constraint firstItem="rSG-jf-2fw" firstAttribute="top" secondItem="un9-Va-RXv" secondAttribute="bottom" id="f2n-ky-2ix"/>
+                            <constraint firstAttribute="trailing" secondItem="ZYv-ob-SqI" secondAttribute="trailing" id="00A-S3-gRY"/>
+                            <constraint firstItem="ZYv-ob-SqI" firstAttribute="bottom" secondItem="SPS-8E-uxa" secondAttribute="top" id="BqM-l1-Chy"/>
+                            <constraint firstItem="ZYv-ob-SqI" firstAttribute="leading" secondItem="dr1-Em-o78" secondAttribute="leading" id="SOx-AJ-5K1"/>
+                            <constraint firstItem="ZYv-ob-SqI" firstAttribute="top" secondItem="un9-Va-RXv" secondAttribute="bottom" constant="-64" id="Tbg-ig-On5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Download" id="dM1-KW-l5m"/>
                     <navigationItem key="navigationItem" title="Download" id="tyr-wb-c1U"/>
                     <connections>
-                        <outlet property="tableView" destination="rSG-jf-2fw" id="KQ4-kY-OzY"/>
+                        <outlet property="tableView" destination="ZYv-ob-SqI" id="X4v-qh-pH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="not-8R-8y7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="34"/>
+            <point key="canvasLocation" x="1048" y="86"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xnU-97-Vhg">
@@ -133,7 +132,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tlj-84-ds4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312" y="34"/>
+            <point key="canvasLocation" x="312" y="86"/>
         </scene>
     </scenes>
     <resources>

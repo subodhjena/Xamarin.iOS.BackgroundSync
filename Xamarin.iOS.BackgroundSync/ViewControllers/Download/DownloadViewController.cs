@@ -4,16 +4,18 @@ using UIKit;
 
 namespace Xamarin.iOS.BackgroundSync
 {
-    public partial class UploadViewController : UIViewController
+    public partial class DownloadViewController : UIViewController
     {
-        public UploadViewController(IntPtr handle) : base("UploadViewController", null)
+        public DownloadViewController(IntPtr handle) : base (handle)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+
+            // TableView
+            this.tableView.Source = new DownloadTableViewSource();
         }
 
         public override void DidReceiveMemoryWarning()
@@ -23,5 +25,4 @@ namespace Xamarin.iOS.BackgroundSync
         }
     }
 }
-
 
