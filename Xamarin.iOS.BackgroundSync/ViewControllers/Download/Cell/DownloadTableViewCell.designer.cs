@@ -19,10 +19,18 @@ namespace Xamarin.iOS.BackgroundSync
 		UIKit.UILabel labelFileName { get; set; }
 
 		[Outlet]
+		UIKit.UILabel labelPercentage { get; set; }
+
+		[Outlet]
 		UIKit.UIProgressView progressDownlaod { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnDownload != null) {
+				btnDownload.Dispose ();
+				btnDownload = null;
+			}
+
 			if (labelFileName != null) {
 				labelFileName.Dispose ();
 				labelFileName = null;
@@ -33,9 +41,9 @@ namespace Xamarin.iOS.BackgroundSync
 				progressDownlaod = null;
 			}
 
-			if (btnDownload != null) {
-				btnDownload.Dispose ();
-				btnDownload = null;
+			if (labelPercentage != null) {
+				labelPercentage.Dispose ();
+				labelPercentage = null;
 			}
 		}
 	}

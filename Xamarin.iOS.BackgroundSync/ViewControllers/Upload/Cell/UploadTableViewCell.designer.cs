@@ -16,6 +16,9 @@ namespace Xamarin.iOS.BackgroundSync
 		UIKit.UIButton btnUpload { get; set; }
 
 		[Outlet]
+		UIKit.UILabel labelPercentage { get; set; }
+
+		[Outlet]
 		UIKit.UILabel labelUploadName { get; set; }
 
 		[Outlet]
@@ -23,6 +26,11 @@ namespace Xamarin.iOS.BackgroundSync
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (btnUpload != null) {
+				btnUpload.Dispose ();
+				btnUpload = null;
+			}
+
 			if (labelUploadName != null) {
 				labelUploadName.Dispose ();
 				labelUploadName = null;
@@ -33,9 +41,9 @@ namespace Xamarin.iOS.BackgroundSync
 				progressUpload = null;
 			}
 
-			if (btnUpload != null) {
-				btnUpload.Dispose ();
-				btnUpload = null;
+			if (labelPercentage != null) {
+				labelPercentage.Dispose ();
+				labelPercentage = null;
 			}
 		}
 	}

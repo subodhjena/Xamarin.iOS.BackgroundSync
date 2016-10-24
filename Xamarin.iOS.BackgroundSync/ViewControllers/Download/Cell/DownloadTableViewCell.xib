@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCK-X4-5eQ">
@@ -53,6 +53,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnDownload" destination="GCK-X4-5eQ" id="3Uf-Aa-1HC"/>
+                <outlet property="labelFileName" destination="MrY-2o-0vd" id="TNL-FS-X0I"/>
+                <outlet property="labelPercentage" destination="2ft-tK-1FZ" id="c1B-FU-Wgh"/>
+                <outlet property="progressDownlaod" destination="z4g-MD-Fsa" id="7jh-Vr-1aw"/>
             </connections>
             <point key="canvasLocation" x="215" y="370"/>
         </tableViewCell>

@@ -10,6 +10,30 @@ namespace Xamarin.iOS.BackgroundSync
         public static readonly NSString Key = new NSString("UploadTableViewCell");
         public static readonly UINib Nib;
 
+        public UILabel Name
+        {
+            get { return labelUploadName; }
+            set { labelUploadName = value; }
+        }
+
+        public UILabel Percentage
+        {
+            get { return labelPercentage; }
+            set { labelPercentage = value; }
+        }
+
+        public UIProgressView Progress
+        {
+            get { return progressUpload; }
+            set { progressUpload = value; }
+        }
+
+        public UIButton Download
+        {
+            get { return btnUpload; }
+            set { btnUpload = value; }
+        }
+
         static UploadTableViewCell()
         {
             Nib = UINib.FromName("UploadTableViewCell", NSBundle.MainBundle);

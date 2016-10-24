@@ -10,6 +10,30 @@ namespace Xamarin.iOS.BackgroundSync
         public static readonly NSString Key = new NSString("DownloadTableViewCell");
         public static readonly UINib Nib;
 
+        public UILabel Name
+        {
+            get { return labelFileName; }
+            set { labelFileName = value; }
+        }
+
+        public UILabel Percentage
+        {
+            get { return labelPercentage;}
+            set { labelPercentage = value;}
+        }
+
+        public UIProgressView Progress
+        {
+            get { return progressDownlaod; }
+            set { progressDownlaod = value; }
+        }
+
+        public UIButton Download
+        {
+            get { return btnDownload; }
+            set { btnDownload = value; }
+        }
+
         static DownloadTableViewCell()
         {
             Nib = UINib.FromName("DownloadTableViewCell", NSBundle.MainBundle);

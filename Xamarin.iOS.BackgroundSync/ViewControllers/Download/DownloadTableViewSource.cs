@@ -29,6 +29,8 @@ namespace Xamarin.iOS.BackgroundSync
                 cell = DownloadTableViewCell.Create();
             }
 
+            cell.Progress.Progress = 5;
+
             return cell;
         }
 

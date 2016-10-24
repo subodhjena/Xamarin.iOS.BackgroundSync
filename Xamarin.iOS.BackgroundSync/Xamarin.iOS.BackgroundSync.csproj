@@ -114,12 +114,14 @@
     <Folder Include="Assets.xcassets\Download.imageset\" />
     <Folder Include="ViewControllers\Download\" />
     <Folder Include="ViewControllers\Upload\" />
+    <Folder Include="ViewControllers\Download\Cell\" />
+    <Folder Include="ViewControllers\Upload\Cell\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Storyboards\Main.storyboard" />
-    <InterfaceDefinition Include="ViewControllers\Download\DownloadTableViewCell.xib" />
-    <InterfaceDefinition Include="ViewControllers\Upload\UploadTableViewCell.xib" />
+    <InterfaceDefinition Include="ViewControllers\Download\Cell\DownloadTableViewCell.xib" />
+    <InterfaceDefinition Include="ViewControllers\Upload\Cell\UploadTableViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -137,13 +139,13 @@
       <DependentUpon>UploadViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\Download\DownloadTableViewSource.cs" />
-    <Compile Include="ViewControllers\Download\DownloadTableViewCell.cs" />
-    <Compile Include="ViewControllers\Download\DownloadTableViewCell.designer.cs">
+    <Compile Include="ViewControllers\Upload\UploadTableViewSource.cs" />
+    <Compile Include="ViewControllers\Download\Cell\DownloadTableViewCell.cs" />
+    <Compile Include="ViewControllers\Download\Cell\DownloadTableViewCell.designer.cs">
       <DependentUpon>DownloadTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\Upload\UploadTableViewSource.cs" />
-    <Compile Include="ViewControllers\Upload\UploadTableViewCell.cs" />
-    <Compile Include="ViewControllers\Upload\UploadTableViewCell.designer.cs">
+    <Compile Include="ViewControllers\Upload\Cell\UploadTableViewCell.cs" />
+    <Compile Include="ViewControllers\Upload\Cell\UploadTableViewCell.designer.cs">
       <DependentUpon>UploadTableViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
