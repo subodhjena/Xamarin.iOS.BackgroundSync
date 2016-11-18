@@ -8,47 +8,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="cxk-wN-pdQ" customClass="DownloadTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="85" id="cxk-wN-pdQ" customClass="DownloadTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCK-X4-5eQ">
-                        <rect key="frame" x="267" y="8" width="45" height="45"/>
+                        <rect key="frame" x="8" y="8" width="45" height="45"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="45" id="fqy-pR-taB"/>
+                            <constraint firstAttribute="width" constant="45" id="cQ2-cN-Agh"/>
+                            <constraint firstAttribute="height" constant="45" id="gL8-Bs-Px2"/>
                         </constraints>
                         <state key="normal" image="Download"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-tK-1FZ">
-                        <rect key="frame" x="220" y="20" width="39" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ft-tK-1FZ">
+                        <rect key="frame" x="61" y="32" width="39" height="21"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download File Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrY-2o-0vd">
-                        <rect key="frame" x="8" y="8" width="149" height="19"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download File Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrY-2o-0vd">
+                        <rect key="frame" x="61" y="8" width="149" height="19"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="z4g-MD-Fsa">
-                        <rect key="frame" x="8" y="51" width="251" height="2"/>
+                        <rect key="frame" x="8" y="72" width="304" height="2"/>
                     </progressView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="leading" secondItem="z4g-MD-Fsa" secondAttribute="trailing" constant="8" symbolic="YES" id="1kb-hj-UiB"/>
-                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="leading" secondItem="2ft-tK-1FZ" secondAttribute="trailing" constant="8" id="6OP-wV-pfK"/>
-                    <constraint firstItem="z4g-MD-Fsa" firstAttribute="bottom" secondItem="GCK-X4-5eQ" secondAttribute="bottom" id="Lyj-jL-oLo"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="GCK-X4-5eQ" secondAttribute="bottom" constant="-1.5" id="Rdn-jw-1Q0"/>
-                    <constraint firstItem="z4g-MD-Fsa" firstAttribute="leading" secondItem="MrY-2o-0vd" secondAttribute="leading" id="UZP-45-Ohb"/>
-                    <constraint firstItem="MrY-2o-0vd" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="cpO-r5-NHh"/>
-                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="eCZ-6c-xba"/>
-                    <constraint firstItem="2ft-tK-1FZ" firstAttribute="centerY" secondItem="YTl-1W-gDM" secondAttribute="centerY" id="fdZ-OR-K6k"/>
-                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="kZS-yo-3KI"/>
-                    <constraint firstItem="MrY-2o-0vd" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="nuC-pu-rkG"/>
+                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="VX7-yo-KP4"/>
+                    <constraint firstItem="2ft-tK-1FZ" firstAttribute="leading" secondItem="GCK-X4-5eQ" secondAttribute="trailing" constant="8" id="ZGu-He-fBL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="z4g-MD-Fsa" secondAttribute="bottom" constant="2.5" id="gMw-VJ-4cf"/>
+                    <constraint firstAttribute="topMargin" secondItem="MrY-2o-0vd" secondAttribute="top" id="kHp-HX-VYM"/>
+                    <constraint firstItem="z4g-MD-Fsa" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="lZZ-A7-K4p"/>
+                    <constraint firstItem="z4g-MD-Fsa" firstAttribute="top" secondItem="GCK-X4-5eQ" secondAttribute="bottom" constant="19" id="nTO-rY-QTx"/>
+                    <constraint firstItem="MrY-2o-0vd" firstAttribute="leading" secondItem="GCK-X4-5eQ" secondAttribute="trailing" constant="8" id="vT0-aR-4T7"/>
+                    <constraint firstItem="z4g-MD-Fsa" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="vey-SB-Z1K"/>
+                    <constraint firstItem="2ft-tK-1FZ" firstAttribute="top" secondItem="MrY-2o-0vd" secondAttribute="bottom" constant="5" id="xQj-QM-P0W"/>
+                    <constraint firstItem="GCK-X4-5eQ" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="yQ9-FZ-PmF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -57,7 +58,7 @@
                 <outlet property="labelPercentage" destination="2ft-tK-1FZ" id="c1B-FU-Wgh"/>
                 <outlet property="progressDownlaod" destination="z4g-MD-Fsa" id="7jh-Vr-1aw"/>
             </connections>
-            <point key="canvasLocation" x="215" y="370"/>
+            <point key="canvasLocation" x="215" y="382.5"/>
         </tableViewCell>
     </objects>
     <resources>

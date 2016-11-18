@@ -15,6 +15,7 @@ namespace Xamarin.iOS.BackgroundSync
             base.ViewDidLoad();
 
             this.tableView.Source = new UploadTableViewSource();
+            this.tableView.EstimatedRowHeight = 60f;
         }
 
         public override void DidReceiveMemoryWarning()

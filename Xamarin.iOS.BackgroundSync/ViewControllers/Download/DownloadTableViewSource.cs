@@ -36,7 +36,7 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)
         {
-            return 60;
+            return UITableView.AutomaticDimension;
         }
     }
 }
