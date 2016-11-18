@@ -15,6 +15,7 @@ namespace Xamarin.iOS.BackgroundSync
         public String FilePath { get; set; }
         public double UploadPercentage { get; set; }
         public int Status { get; set;}
+        public int SyncType { get; set; }
     }
 }
 

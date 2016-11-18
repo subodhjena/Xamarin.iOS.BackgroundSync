@@ -168,6 +168,7 @@
     <Compile Include="Core\SyncManager\SyncManagerDelegate.cs" />
     <Compile Include="Core\Models\SyncStatus.cs" />
     <Compile Include="Core\Models\UploadModel.cs" />
+    <Compile Include="Core\Models\SyncType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
