@@ -11,6 +11,7 @@ namespace Xamarin.iOS.BackgroundSync
     public class AppDelegate : UIApplicationDelegate
     {
         private NotificationManager notificationManager = null;
+        private SyncManager syncManager = null;
 
         public override UIWindow Window
         {
@@ -26,12 +27,26 @@ namespace Xamarin.iOS.BackgroundSync
             }
         }
 
+        public SyncManager SyncManager
+        {
+            get
+            {
+                return syncManager;
+            }
+        }
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Create Notification Manager
             if (notificationManager == null)
             {
                 notificationManager = new NotificationManager();
+            }
+
+            // Create Sync Manager
+            if (syncManager == null)
+            {
+                syncManager = new SyncManager();
             }
 
             return true;
