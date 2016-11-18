@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qO5-29-xSo">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -51,7 +52,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" id="MjN-m6-ess"/>
-                    <navigationItem key="navigationItem" title="Upload" id="xVO-Di-K2l"/>
+                    <navigationItem key="navigationItem" title="Upload" id="xVO-Di-K2l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AUN-MJ-kJh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="AddUpload:" destination="P3L-Fg-N3U" id="6vG-CG-xCu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="MbC-ga-Vzt" id="Ebh-nL-Btk"/>
                     </connections>
@@ -86,7 +94,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Download" id="dM1-KW-l5m"/>
-                    <navigationItem key="navigationItem" title="Download" id="tyr-wb-c1U"/>
+                    <navigationItem key="navigationItem" title="Download" id="tyr-wb-c1U">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6K7-mn-gpZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="AddDownload:" destination="4K0-WW-Xa6" id="6cE-Dv-gwj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZYv-ob-SqI" id="X4v-qh-pH7"/>
                     </connections>

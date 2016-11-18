@@ -23,6 +23,12 @@ namespace Xamarin.iOS.BackgroundSync
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+    
+        // Add a new Download
+        partial void AddDownload(Foundation.NSObject sender)
+        {
+
+        }
     }
 }
 

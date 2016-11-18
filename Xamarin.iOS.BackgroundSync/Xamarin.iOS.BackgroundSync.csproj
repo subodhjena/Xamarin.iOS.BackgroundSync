@@ -125,7 +125,10 @@
     <Folder Include="ViewControllers\Upload\" />
     <Folder Include="ViewControllers\Download\Cell\" />
     <Folder Include="ViewControllers\Upload\Cell\" />
-    <Folder Include="Models\" />
+    <Folder Include="Core\" />
+    <Folder Include="Core\NotificationManager\" />
+    <Folder Include="Core\SyncManager\" />
+    <Folder Include="Core\Models\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
@@ -160,7 +163,11 @@
     <Compile Include="ViewControllers\Upload\Cell\UploadTableViewCell.designer.cs">
       <DependentUpon>UploadTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\UploadModel.cs" />
+    <Compile Include="Core\NotificationManager\NotificationManager.cs" />
+    <Compile Include="Core\SyncManager\SyncManager.cs" />
+    <Compile Include="Core\SyncManager\SyncManagerDelegate.cs" />
+    <Compile Include="Core\Models\SyncStatus.cs" />
+    <Compile Include="Core\Models\UploadModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

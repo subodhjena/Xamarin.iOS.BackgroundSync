@@ -14,6 +14,9 @@ namespace Xamarin.iOS.BackgroundSync
 	{
 		[Outlet]
 		UIKit.UITableView tableView { get; set; }
+
+		[Action ("AddUpload:")]
+		partial void AddUpload (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

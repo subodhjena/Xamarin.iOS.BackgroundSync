@@ -16,12 +16,5 @@ namespace Xamarin.iOS.BackgroundSync
         public double UploadPercentage { get; set; }
         public int Status { get; set;}
     }
-
-    public enum SyncStatus
-    {
-        Stopped = 0,
-        Started,
-        Failed
-    }
 }
 
