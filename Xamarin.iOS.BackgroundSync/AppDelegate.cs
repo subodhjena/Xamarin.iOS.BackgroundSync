@@ -116,7 +116,7 @@ namespace Xamarin.iOS.BackgroundSync
                         {
                             InvokeOnMainThread(delegate
                             {
-                                this.NotificationManager.ShowUploadNotification(true, "Success For Task ID" + taskId);
+                                this.NotificationManager.ShowUploadNotification(true, "Success For Task ID :" + taskId);
                             });
 
                             SyncManager.UpdateSyncStatus(taskId, SyncStatus.Completed);
@@ -125,7 +125,7 @@ namespace Xamarin.iOS.BackgroundSync
                         {
                             InvokeOnMainThread(delegate
                             {
-                                this.NotificationManager.ShowUploadNotification(false, "Failed For Task ID" + taskId);
+                                this.NotificationManager.ShowUploadNotification(false, "Failed For Task ID :" + taskId);
                             });
 
                             SyncManager.UpdateSyncStatus(taskId, SyncStatus.Failed);

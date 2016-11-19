@@ -48,7 +48,7 @@ namespace Xamarin.iOS.BackgroundSync
               
                 InvokeOnMainThread(delegate
                 {
-                    appDel.NotificationManager.ShowUploadNotification(true, "Failed For Task ID "+ taskId + "Reason :" + error.Description);
+                    appDel.NotificationManager.ShowUploadNotification(false, "Failed For Task ID "+ taskId + " Reason :" + error.Description);
                 });
             }
         }

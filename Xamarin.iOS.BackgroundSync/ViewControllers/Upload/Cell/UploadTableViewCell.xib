@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,13 +18,13 @@
                         <rect key="frame" x="8" y="8" width="45" height="45"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="aFN-qB-6gy"/>
-                            <constraint firstAttribute="width" constant="45" id="vsy-Ds-7He"/>
+                            <constraint firstAttribute="height" constant="45" id="3bQ-Fy-4tx"/>
+                            <constraint firstAttribute="width" constant="45" id="LMQ-Bt-He3"/>
                         </constraints>
                         <state key="normal" image="Upload"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload File Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh8-7Y-HLW">
-                        <rect key="frame" x="61" y="8" width="129" height="19"/>
+                        <rect key="frame" x="61" y="8" width="251" height="19"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -40,16 +39,17 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="4yS-HB-Z8m"/>
-                    <constraint firstItem="Jgm-cb-j05" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="AGd-WS-qtb"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="9k0-Rn-Ch5" secondAttribute="bottom" constant="2" id="DKd-LP-8p1"/>
-                    <constraint firstItem="vw9-ff-Nra" firstAttribute="top" secondItem="sh8-7Y-HLW" secondAttribute="bottom" constant="5" id="LFg-cW-khi"/>
-                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="top" secondItem="Jgm-cb-j05" secondAttribute="bottom" constant="20" id="UZD-KP-R5s"/>
-                    <constraint firstAttribute="topMargin" secondItem="sh8-7Y-HLW" secondAttribute="top" id="WQh-pI-CQr"/>
-                    <constraint firstItem="sh8-7Y-HLW" firstAttribute="leading" secondItem="Jgm-cb-j05" secondAttribute="trailing" constant="8" id="YCg-ax-6SN"/>
-                    <constraint firstItem="Jgm-cb-j05" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="YMg-94-LbE"/>
-                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="YQc-gy-nzW"/>
-                    <constraint firstItem="vw9-ff-Nra" firstAttribute="leading" secondItem="Jgm-cb-j05" secondAttribute="trailing" constant="8" id="dCF-xE-LBp"/>
+                    <constraint firstItem="vw9-ff-Nra" firstAttribute="leading" secondItem="Jgm-cb-j05" secondAttribute="trailing" constant="8" id="9tc-2w-as6"/>
+                    <constraint firstItem="Jgm-cb-j05" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="G9i-AI-Gw3"/>
+                    <constraint firstItem="vw9-ff-Nra" firstAttribute="top" secondItem="sh8-7Y-HLW" secondAttribute="bottom" constant="5" id="aa0-8s-dM8"/>
+                    <constraint firstItem="sh8-7Y-HLW" firstAttribute="leading" secondItem="Jgm-cb-j05" secondAttribute="trailing" constant="8" id="he5-p5-ACw"/>
+                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="heK-ZK-Q4V"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9k0-Rn-Ch5" secondAttribute="bottom" constant="2" id="ngn-PQ-yLp"/>
+                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="top" secondItem="vw9-ff-Nra" secondAttribute="bottom" constant="20" id="pcP-U0-Gxe"/>
+                    <constraint firstItem="sh8-7Y-HLW" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="ppK-Ws-t1T"/>
+                    <constraint firstItem="9k0-Rn-Ch5" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="qrb-Ja-DXb"/>
+                    <constraint firstAttribute="topMargin" secondItem="sh8-7Y-HLW" secondAttribute="top" id="vvy-LE-ctB"/>
+                    <constraint firstItem="Jgm-cb-j05" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" id="yeD-Fw-yuG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

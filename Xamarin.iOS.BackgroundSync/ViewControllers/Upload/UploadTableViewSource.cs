@@ -6,8 +6,11 @@ namespace Xamarin.iOS.BackgroundSync
 {
     public class UploadTableViewSource : UITableViewSource
     {
-        public UploadTableViewSource()
+        private UploadViewController uploadViewController;
+
+        public UploadTableViewSource(UploadViewController uploadViewController)
         {
+            this.uploadViewController = uploadViewController;
         }
 
         public override nint NumberOfSections(UITableView tableView)
@@ -17,7 +20,7 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return 5;
+            return uploadViewController.SortedUploads.Count;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -28,6 +31,29 @@ namespace Xamarin.iOS.BackgroundSync
             {
                 cell = UploadTableViewCell.Create();
             }
+
+            var upload = uploadViewController.SortedUploads[indexPath.Row];
+
+            if (upload.Status == (int) SyncStatus.Completed)
+            {
+                cell.Name.TextColor = UIColor.Green;
+            }
+            else if (upload.Status == (int)SyncStatus.Failed)
+            {
+                cell.Name.TextColor = UIColor.Red;
+            }
+            else if (upload.Status == (int)SyncStatus.Started)
+            {
+                cell.Name.TextColor = UIColor.Yellow;
+            }
+            else if (upload.Status == (int)SyncStatus.Stopped)
+            {
+                cell.Name.TextColor = UIColor.Black;
+            }
+
+            cell.Name.Text = string.Format("Upload ID {0}", upload.Id);
+            cell.Progress.Progress += (float)upload.SyncProgress;
+            cell.Percentage.Text = Math.Round(upload.SyncProgress, 2).ToString()+"%";
 
             return cell;
         }

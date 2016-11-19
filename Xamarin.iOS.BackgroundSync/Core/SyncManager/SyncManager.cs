@@ -98,7 +98,6 @@ namespace Xamarin.iOS.BackgroundSync
             {
                 if (syncStatus == SyncStatus.Stopped)
                 {
-                    upload.TaskIdentifier = 0;
                     upload.Status = (int)SyncStatus.Stopped;
                 }
                 else if (syncStatus == SyncStatus.Started)
