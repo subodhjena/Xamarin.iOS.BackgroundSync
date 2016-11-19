@@ -6,8 +6,11 @@ namespace Xamarin.iOS.BackgroundSync
 {
     public class DownloadTableViewSource : UITableViewSource
     {
-        public DownloadTableViewSource()
+        private DownloadViewController downloadViewController;
+
+        public DownloadTableViewSource(DownloadViewController downloadViewController)
         {
+            this.downloadViewController = downloadViewController;
         }
 
         public override nint NumberOfSections(UITableView tableView)
@@ -17,7 +20,7 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return 5;
+            return downloadViewController.SortedDownloads.Count;
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -29,7 +32,28 @@ namespace Xamarin.iOS.BackgroundSync
                 cell = DownloadTableViewCell.Create();
             }
 
-            cell.Progress.Progress = 5;
+            var download = downloadViewController.SortedDownloads[indexPath.Row];
+
+            if (download.Status == (int)SyncStatus.Completed)
+            {
+                cell.Name.TextColor = UIColor.Green;
+            }
+            else if (download.Status == (int)SyncStatus.Failed)
+            {
+                cell.Name.TextColor = UIColor.Red;
+            }
+            else if (download.Status == (int)SyncStatus.Started)
+            {
+                cell.Name.TextColor = UIColor.Yellow;
+            }
+            else if (download.Status == (int)SyncStatus.Stopped)
+            {
+                cell.Name.TextColor = UIColor.Black;
+            }
+
+            cell.Name.Text = string.Format("{0}", download.Id);
+            cell.Progress.Progress += (float)download.SyncProgress;
+            cell.Percentage.Text = Math.Round(download.SyncProgress, 2).ToString() + "%";
 
             return cell;
         }

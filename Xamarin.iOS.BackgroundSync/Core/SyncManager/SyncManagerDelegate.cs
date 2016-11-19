@@ -5,7 +5,7 @@ using UIKit;
 
 namespace Xamarin.iOS.BackgroundSync
 {
-    public class SyncManagerDelegate : NSUrlSessionTaskDelegate
+    public class SyncManagerDelegate : NSUrlSessionDownloadDelegate
     {
         private WeakReference<SyncManager> weakSyncManager;
 
@@ -65,9 +65,28 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override void DidSendBodyData(NSUrlSession session, NSUrlSessionTask task, long bytesSent, long totalBytesSent, long totalBytesExpectedToSend)
         {
-            var uploadPercentage = ((double)totalBytesSent / totalBytesExpectedToSend) * 100.0;
+            var syncPercentage = ((double)totalBytesSent / totalBytesExpectedToSend) * 100.0;
             var taskId = Convert.ToInt32(task.TaskIdentifier);
-            this.SyncManager.UpdateSyncProgress(taskId, uploadPercentage);
+            this.SyncManager.UpdateSyncProgress(taskId, syncPercentage);
+        }
+
+        // This is for Download
+
+        public override void DidFinishDownloading(NSUrlSession session, NSUrlSessionDownloadTask downloadTask, NSUrl location)
+        {
+            Console.WriteLine("Downloading Completed For {0}", downloadTask.TaskIdentifier);
+        }
+
+        public override void DidResume(NSUrlSession session, NSUrlSessionDownloadTask downloadTask, long resumeFileOffset, long expectedTotalBytes)
+        {
+            Console.WriteLine("Downloading Resumed For {0}", downloadTask.TaskIdentifier);
+        }
+
+        public override void DidWriteData(NSUrlSession session, NSUrlSessionDownloadTask downloadTask, long bytesWritten, long totalBytesWritten, long totalBytesExpectedToWrite)
+        {
+            var syncPercentage = ((double)totalBytesWritten / totalBytesExpectedToWrite) * 100.0;
+            var taskId = Convert.ToInt32(downloadTask.TaskIdentifier);
+            this.SyncManager.UpdateSyncProgress(taskId, syncPercentage);
         }
     }
 }

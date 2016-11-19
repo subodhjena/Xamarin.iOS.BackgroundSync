@@ -33,8 +33,38 @@ namespace Xamarin.iOS.BackgroundSync
                 config.HttpMaximumConnectionsPerHost = 4; //iOS Default is 4
                 config.TimeoutIntervalForRequest = 600.0; //30min allowance; iOS default is 60 seconds.
                 config.TimeoutIntervalForResource = 120.0; //2min; iOS Default is 7 days
-               
+
                 return NSUrlSession.FromConfiguration(config, new SyncManagerDelegate(this), new NSOperationQueue());
+            }
+        }
+
+        public void StartDownload(string url)
+        {
+            NSUrl downloadURL = NSUrl.FromString(url);
+
+            if (downloadURL != null)
+            {
+                // Create a GUID
+                var id = Guid.NewGuid().ToString();
+
+                // New file path
+                var newFileName = id + FileExtension;
+                var newPath = Path.Combine(Utilities.BackgroundSyncFilePath(), newFileName);
+
+                // Create SYNC object
+                var realm = Realm.GetInstance();
+                realm.Write(() =>
+                {
+                    var sync = realm.CreateObject<SyncModel>();
+                    sync.Id = id;
+                    sync.TaskIdentifier = 0;
+                    sync.FilePath = newPath;
+                    sync.SyncProgress = 0;
+                    sync.Status = (int)SyncStatus.Stopped;
+                    sync.SyncType = (int)SyncType.Download;
+                });
+
+                this.Download(downloadURL, id);
             }
         }
 
@@ -66,9 +96,9 @@ namespace Xamarin.iOS.BackgroundSync
                 });
 
                 // Start the Upload
-                Upload(id);
+                this.Upload(id);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Cannot Copy File & Start Download: {0}", ex.StackTrace);
             }
@@ -78,11 +108,11 @@ namespace Xamarin.iOS.BackgroundSync
         {
             // Get the Upload
             var realm = Realm.GetInstance();
-            var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
+            var syncItem = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
 
             realm.Write(() =>
             {
-                upload.SyncProgress = syncProgress;
+                syncItem.SyncProgress = syncProgress;
             });
         }
 
@@ -90,27 +120,27 @@ namespace Xamarin.iOS.BackgroundSync
         {
             // Get the Upload
             var realm = Realm.GetInstance();
-            var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
+            var syncItem = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
 
             realm.Write(() =>
             {
                 if (syncStatus == SyncStatus.Stopped)
                 {
-                    upload.Status = (int)SyncStatus.Stopped;
+                    syncItem.Status = (int)SyncStatus.Stopped;
                 }
                 else if (syncStatus == SyncStatus.Started)
                 {
-                    upload.Status = (int)SyncStatus.Started;
+                    syncItem.Status = (int)SyncStatus.Started;
                 }
                 else if (syncStatus == SyncStatus.Completed)
                 {
-                    upload.TaskIdentifier = 0;
-                    upload.Status = (int)SyncStatus.Completed;
+                    syncItem.TaskIdentifier = 0;
+                    syncItem.Status = (int)SyncStatus.Completed;
                 }
                 else if (syncStatus == SyncStatus.Failed)
                 {
-                    upload.TaskIdentifier = null;
-                    upload.Status = (int)SyncStatus.Failed;
+                    syncItem.TaskIdentifier = null;
+                    syncItem.Status = (int)SyncStatus.Failed;
                 }
             });
         }
@@ -122,7 +152,7 @@ namespace Xamarin.iOS.BackgroundSync
                 // Get the Upload
                 var realm = Realm.GetInstance();
                 var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.Id == uploadId);
-                    
+
                 if (this.syncSession == null)
                 {
                     this.syncSession = this.InitSyncSession();
@@ -175,6 +205,7 @@ namespace Xamarin.iOS.BackgroundSync
 
                     realm.Write(() =>
                     {
+                        upload.Status = (int)SyncStatus.Started;
                         upload.TaskIdentifier = taskId;
                     });
 
@@ -185,6 +216,40 @@ namespace Xamarin.iOS.BackgroundSync
             catch (Exception ex)
             {
                 Console.WriteLine("Upload Failed With Ex: {0}", ex.StackTrace);
+            }
+        }
+
+        private void Download(NSUrl url, string downloadId)
+        {
+            try
+            {
+                // Get the Upload
+                var realm = Realm.GetInstance();
+                var download = realm.All<SyncModel>().FirstOrDefault(sync => sync.Id == downloadId);
+
+                if (this.syncSession == null)
+                {
+                    this.syncSession = this.InitSyncSession();
+                }
+
+                NSUrlRequest request = NSUrlRequest.FromUrl(url);
+                var downloadTask = syncSession.CreateDownloadTask(request);
+
+                // Save the Identifier to the Existing Upload
+                var taskId = Convert.ToInt32(downloadTask.TaskIdentifier);
+
+                realm.Write(() =>
+                {
+                    download.Status = (int)SyncStatus.Started;
+                    download.TaskIdentifier = taskId;
+                });
+
+                // Start the download now
+                downloadTask.Resume();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Downlaod Failed With Ex: {0}", ex.StackTrace);
             }
         }
 

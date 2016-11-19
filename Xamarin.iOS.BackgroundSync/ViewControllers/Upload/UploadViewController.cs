@@ -17,6 +17,14 @@ namespace Xamarin.iOS.BackgroundSync
 
         public UploadViewController(IntPtr handle) : base(handle)
         {
+            // Create Timer
+            if (timer == null)
+            {
+                timer = NSTimer.CreateRepeatingScheduledTimer(TimeSpan.FromSeconds(REFRESH_INTERVAL), delegate
+                {
+                    this.tableView.ReloadData();
+                });
+            }
         }
 
         public List<SyncModel> SortedUploads
@@ -34,33 +42,6 @@ namespace Xamarin.iOS.BackgroundSync
 
             this.tableView.Source = new UploadTableViewSource(this);
             this.tableView.EstimatedRowHeight = 60f;
-        }
-
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-
-            // Create Timer
-            if (timer == null)
-            {
-                timer = NSTimer.CreateRepeatingScheduledTimer(TimeSpan.FromSeconds(REFRESH_INTERVAL), delegate
-                {
-                    this.tableView.ReloadData();
-                });
-            }
-           
-            RefreshDataSource();
-        }
-
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-
-            // Invalidate the Timer
-            if (timer != null)
-            {
-                timer.Invalidate();
-            }
         }
 
         public override void DidReceiveMemoryWarning()
