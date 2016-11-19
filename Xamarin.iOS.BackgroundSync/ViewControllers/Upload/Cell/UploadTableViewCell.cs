@@ -28,7 +28,7 @@ namespace Xamarin.iOS.BackgroundSync
             set { progressUpload = value; }
         }
 
-        public UIButton Download
+        public UIButton Upload
         {
             get { return btnUpload; }
             set { btnUpload = value; }

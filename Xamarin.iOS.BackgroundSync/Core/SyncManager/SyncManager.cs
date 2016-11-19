@@ -76,8 +76,6 @@ namespace Xamarin.iOS.BackgroundSync
 
         public void UpdateSyncProgress(int taskIdentifier, double syncProgress)
         {
-            Console.WriteLine("Progress {0} for TaskID {1}", syncProgress, taskIdentifier);
-
             // Get the Upload
             var realm = Realm.GetInstance();
             var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
