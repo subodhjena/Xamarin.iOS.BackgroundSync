@@ -51,7 +51,7 @@ namespace Xamarin.iOS.BackgroundSync
                 cell.Name.TextColor = UIColor.Black;
             }
 
-            cell.Name.Text = string.Format("Upload ID {0}", upload.Id);
+            cell.Name.Text = string.Format("{0}", upload.Id);
             cell.Progress.Progress += (float)upload.SyncProgress;
             cell.Percentage.Text = Math.Round(upload.SyncProgress, 2).ToString()+"%";
 

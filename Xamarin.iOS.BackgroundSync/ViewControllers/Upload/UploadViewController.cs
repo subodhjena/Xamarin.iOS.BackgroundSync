@@ -72,7 +72,7 @@ namespace Xamarin.iOS.BackgroundSync
         private void RefreshDataSource()
         {
             var realm = Realm.GetInstance();
-            uploads = realm.All<SyncModel>().ToList();
+            uploads = realm.All<SyncModel>().Where(upload => upload.SyncType == (int)SyncType.Upload).ToList();
         }
 
         private List<SyncModel> SortUploads()
