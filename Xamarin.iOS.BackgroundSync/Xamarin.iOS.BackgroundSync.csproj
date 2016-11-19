@@ -129,6 +129,7 @@
     <Folder Include="Core\NotificationManager\" />
     <Folder Include="Core\SyncManager\" />
     <Folder Include="Core\Models\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Storyboards\LaunchScreen.storyboard" />
@@ -167,8 +168,12 @@
     <Compile Include="Core\SyncManager\SyncManager.cs" />
     <Compile Include="Core\SyncManager\SyncManagerDelegate.cs" />
     <Compile Include="Core\Models\SyncStatus.cs" />
-    <Compile Include="Core\Models\UploadModel.cs" />
+    <Compile Include="Core\Models\SyncModel.cs" />
     <Compile Include="Core\Models\SyncType.cs" />
+    <Compile Include="Helpers\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SampleUpload.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />

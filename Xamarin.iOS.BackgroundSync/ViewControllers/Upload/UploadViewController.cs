@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 
 using UIKit;
+using Foundation;
 
 namespace Xamarin.iOS.BackgroundSync
 {
@@ -27,7 +29,9 @@ namespace Xamarin.iOS.BackgroundSync
         // Add a new Upload
         partial void AddUpload(Foundation.NSObject sender)
         {
-
+            var fileToUpload = Path.Combine(NSBundle.MainBundle.BundlePath, "SampleUpload.pdf");
+            var appDelegate = UIApplication.SharedApplication.Delegate as AppDelegate;
+            appDelegate.SyncManager.StartUpload(fileToUpload);
         }
     }
 }
