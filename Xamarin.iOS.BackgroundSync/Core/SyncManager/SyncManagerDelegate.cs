@@ -34,17 +34,22 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override void DidCompleteWithError(NSUrlSession session, NSUrlSessionTask task, NSError error)
         {
-            Console.WriteLine(string.Format("DidCompleteWithError TaskId: {0}{1}", task.TaskIdentifier, error == null ? string.Empty : " Error: " + error.Description));
+            Console.WriteLine(string.Format("DidCompleteWithError TaskId: {0} {1}", task.TaskIdentifier, error == null ? string.Empty : " Error: " + error.Description));
+            var appDel = UIApplication.SharedApplication.Delegate as AppDelegate;
 
             if (error == null)
             {
-                var appDel = UIApplication.SharedApplication.Delegate as AppDelegate;
                 appDel.SyncCompleted(task);
             }
             else
             {
-                // var taskId = Convert.ToInt32(task.TaskIdentifier);
-                // this.SyncManager.UpdateUploadStatus(taskId, AuditUploadStatus.Failed);
+                var taskId = Convert.ToInt32(task.TaskIdentifier);
+                this.SyncManager.UpdateSyncStatus(taskId, SyncStatus.Failed);
+              
+                InvokeOnMainThread(delegate
+                {
+                    appDel.NotificationManager.ShowUploadNotification(true, "Failed For Task ID "+ taskId + "Reason :" + error.Description);
+                });
             }
         }
 

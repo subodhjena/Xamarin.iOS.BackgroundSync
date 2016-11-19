@@ -6,6 +6,7 @@ namespace Xamarin.iOS.BackgroundSync
     {
         Stopped = 0,
         Started,
+        Completed,
         Failed
     }
 }

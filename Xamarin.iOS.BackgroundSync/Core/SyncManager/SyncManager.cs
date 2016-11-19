@@ -88,6 +88,36 @@ namespace Xamarin.iOS.BackgroundSync
             });
         }
 
+        public void UpdateSyncStatus(int taskIdentifier, SyncStatus syncStatus)
+        {
+            // Get the Upload
+            var realm = Realm.GetInstance();
+            var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
+
+            realm.Write(() =>
+            {
+                if (syncStatus == SyncStatus.Stopped)
+                {
+                    upload.TaskIdentifier = 0;
+                    upload.Status = (int)SyncStatus.Stopped;
+                }
+                else if (syncStatus == SyncStatus.Started)
+                {
+                    upload.Status = (int)SyncStatus.Started;
+                }
+                else if (syncStatus == SyncStatus.Completed)
+                {
+                    upload.TaskIdentifier = 0;
+                    upload.Status = (int)SyncStatus.Completed;
+                }
+                else if (syncStatus == SyncStatus.Failed)
+                {
+                    upload.TaskIdentifier = null;
+                    upload.Status = (int)SyncStatus.Failed;
+                }
+            });
+        }
+
         private void Upload(string uploadId)
         {
             try
