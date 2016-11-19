@@ -13,7 +13,7 @@ namespace Xamarin.iOS.BackgroundSync
         public String Id { get; set; }
         public int? TaskIdentifier { get; set; }
         public String FilePath { get; set; }
-        public double UploadPercentage { get; set; }
+        public double SyncProgress { get; set; }
         public int Status { get; set;}
         public int SyncType { get; set; }
     }

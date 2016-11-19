@@ -34,7 +34,7 @@ namespace Xamarin.iOS.BackgroundSync
                 config.TimeoutIntervalForRequest = 600.0; //30min allowance; iOS default is 60 seconds.
                 config.TimeoutIntervalForResource = 120.0; //2min; iOS Default is 7 days
                
-                return NSUrlSession.FromConfiguration(config, new SyncManagerDelegate(), new NSOperationQueue());
+                return NSUrlSession.FromConfiguration(config, new SyncManagerDelegate(this), new NSOperationQueue());
             }
         }
 
@@ -60,7 +60,7 @@ namespace Xamarin.iOS.BackgroundSync
                     sync.Id = id;
                     sync.TaskIdentifier = 0;
                     sync.FilePath = newPath;
-                    sync.UploadPercentage = 0;
+                    sync.SyncProgress = 0;
                     sync.Status = (int)SyncStatus.Stopped;
                     sync.SyncType = (int)SyncType.Upload;
                 });
@@ -72,6 +72,20 @@ namespace Xamarin.iOS.BackgroundSync
             {
                 Console.WriteLine("Cannot Copy File & Start Download: {0}", ex.StackTrace);
             }
+        }
+
+        public void UpdateSyncProgress(int taskIdentifier, double syncProgress)
+        {
+            Console.WriteLine("Progress {0} for TaskID {1}", syncProgress, taskIdentifier);
+
+            // Get the Upload
+            var realm = Realm.GetInstance();
+            var upload = realm.All<SyncModel>().FirstOrDefault(sync => sync.TaskIdentifier == taskIdentifier);
+
+            realm.Write(() =>
+            {
+                upload.SyncProgress = syncProgress;
+            });
         }
 
         private void Upload(string uploadId)

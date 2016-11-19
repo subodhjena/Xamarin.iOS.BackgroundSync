@@ -60,11 +60,9 @@ namespace Xamarin.iOS.BackgroundSync
 
         public override void DidSendBodyData(NSUrlSession session, NSUrlSessionTask task, long bytesSent, long totalBytesSent, long totalBytesExpectedToSend)
         {
-            Console.WriteLine ("DidSendBodyData bSent: {0}, totalBSent: {1} totalExpectedToSend: {2}", bytesSent, totalBytesSent, totalBytesExpectedToSend);
-
-            // var uploadPercentage = ((double)totalBytesSent / totalBytesExpectedToSend) * 100.0;
-            // var taskId = Convert.ToInt32(task.TaskIdentifier);
-            // this.SyncManager.UpdateUploadPercentage(taskId, uploadPercentage);
+            var uploadPercentage = ((double)totalBytesSent / totalBytesExpectedToSend) * 100.0;
+            var taskId = Convert.ToInt32(task.TaskIdentifier);
+            this.SyncManager.UpdateSyncProgress(taskId, uploadPercentage);
         }
     }
 }
